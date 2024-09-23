@@ -1,0 +1,12 @@
+*{
+    font-family: "Arial";
+}
+
+@media screen and (max-width: 1500px) {
+    .btn-text {
+        display: none;
+    }
+    .menu-btn {
+        justify-content: center;
+    }
+}
