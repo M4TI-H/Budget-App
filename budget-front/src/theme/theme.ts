@@ -8,12 +8,17 @@ const theme = extendTheme({
                     bg: "none",
                     color: "#212529",
                     w: "100%",
-                    h: "6vh",
+                    h: "15%",
                     borderRadius: 0,
                     justifyContent: "flex-start",
+                    "@media (max-width: 1400px), (max-height: 400px)": {
+                        justifyContent: "center",
+                        h: "25%",
+                    },
                     _hover: {
                         bg: "#e9ecef"
                     }
+                    
             }
         }
       }
