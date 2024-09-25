@@ -1,0 +1,44 @@
+*{
+    font-family: "Arial";
+}
+
+@media screen and (max-width: 1300px), (max-height: 840px) {
+
+    .title-description {
+        font-size: 2vh;
+        display: none
+    }
+
+}
+
+@media screen and (max-width: 1200px) {
+    
+    .form-box {
+        width: 100% !important;
+    }
+    
+    .title-box {
+        width: 100%;
+    }
+
+    .title {
+        font-size: 3vw;
+        text-align: center;
+    }
+
+    
+    .form {
+        width: 100% !important;
+    }
+
+    .image {
+        display: none;
+    }
+    
+    .image-box {    
+        display: none !important;
+    }
+
+}
+
+

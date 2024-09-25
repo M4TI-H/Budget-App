@@ -22,16 +22,16 @@ export default function MainPage() {
                 <VStack spacing={0} h="50vh">
                     <Image className="logo-img" src={logo} h="20%"/>
     
-                    <Button variant="menu-bttn" id="dashboard" className="menu-btn" onClick={setSubpage} leftIcon={<IconCategory2 />}><Text className="btn-text">Dashboard</Text></Button>
-                    <Button variant="menu-bttn" id="statistics" className="menu-btn" onClick={setSubpage} leftIcon={<IconChartDots />}><Text className="btn-text">Statistics</Text></Button>
-                    <Button variant="menu-bttn" id="history" className="menu-btn" onClick={setSubpage} leftIcon={<IconHistory />}><Text className="btn-text">History</Text></Button>
-                    <Button variant="menu-bttn" id="accounts" className="menu-btn" onClick={setSubpage} leftIcon={<IconWallet />}><Text className="btn-text">Accounts</Text></Button>
+                    <Button variant="sidemenu-bttn" id="dashboard" className="menu-btn" onClick={setSubpage} leftIcon={<IconCategory2 />}><Text className="btn-text">Dashboard</Text></Button>
+                    <Button variant="sidemenu-bttn" id="statistics" className="menu-btn" onClick={setSubpage} leftIcon={<IconChartDots />}><Text className="btn-text">Statistics</Text></Button>
+                    <Button variant="sidemenu-bttn" id="history" className="menu-btn" onClick={setSubpage} leftIcon={<IconHistory />}><Text className="btn-text">History</Text></Button>
+                    <Button variant="sidemenu-bttn" id="accounts" className="menu-btn" onClick={setSubpage} leftIcon={<IconWallet />}><Text className="btn-text">Accounts</Text></Button>
                 
                 </VStack>
                 <VStack spacing={0} h="50vh" flexDir={"column"} justify={"flex-end"}>
-                    <Button variant="menu-bttn" id="profile" className="menu-btn" onClick={setSubpage} leftIcon={<IconUserCircle />}><Text className="btn-text">Profile</Text></Button>
-                    <Button variant="menu-bttn" id="settings" className="menu-btn" onClick={setSubpage} leftIcon={<IconSettings />}><Text className="btn-text">Settings</Text></Button>
-                    <Button variant="menu-bttn" id="logout" className="menu-btn" onClick={setSubpage} leftIcon={<IconLogout />}><Text className="btn-text">Log out</Text></Button>
+                    <Button variant="sidemenu-bttn" id="profile" className="menu-btn" onClick={setSubpage} leftIcon={<IconUserCircle />}><Text className="btn-text">Profile</Text></Button>
+                    <Button variant="sidemenu-bttn" id="settings" className="menu-btn" onClick={setSubpage} leftIcon={<IconSettings />}><Text className="btn-text">Settings</Text></Button>
+                    <Button variant="sidemenu-bttn" id="logout" className="menu-btn" onClick={setSubpage} leftIcon={<IconLogout />}><Text className="btn-text">Log out</Text></Button>
                 </VStack>
             </Flex>
 

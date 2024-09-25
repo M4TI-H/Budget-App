@@ -4,7 +4,7 @@ const theme = extendTheme({
     components: {
         Button: {
             variants: {
-                'menu-bttn': {
+                'sidemenu-bttn': {
                     bg: "none",
                     color: "#212529",
                     w: "100%",
@@ -18,10 +18,31 @@ const theme = extendTheme({
                     _hover: {
                         bg: "#e9ecef"
                     }
-                    
+                },
+
+                'login-menu-bttn': {
+                    bg: "none",
+                    color: "#212529",
+                    w: "120px",
+                    h: "40px",
+                    borderRadius: "15px",
+                    _hover: {
+                        bg: "#ADB5BD"
+                    }
+                },
+
+                'login-dark-bttn': {
+                    bg: "#212529",
+                    color: "#F8F9FA",
+                    w: "120px",
+                    h: "40px",
+                    borderRadius: "15px",
+                    _hover: {
+                        bg: "#495057"
+                    }
+                }
             }
         }
-      }
     }
 })
 
