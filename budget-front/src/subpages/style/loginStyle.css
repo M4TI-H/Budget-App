@@ -2,13 +2,24 @@
     font-family: "Arial";
 }
 
+
 @media screen and (max-width: 1300px), (max-height: 840px) {
 
     .title-description {
-        font-size: 2vh;
         display: none
     }
+    
+}
 
+@media screen and (max-width: 1500px) {
+
+    .menu1 {
+        display: none !important;
+    }
+
+    .menu2 {
+        display: flex !important;
+    }
 }
 
 @media screen and (max-width: 1200px) {
@@ -29,6 +40,7 @@
     
     .form {
         width: 100% !important;
+        align-items: center;
     }
 
     .image {

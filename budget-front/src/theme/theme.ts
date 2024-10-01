@@ -11,6 +11,7 @@ const theme = extendTheme({
                     h: "15%",
                     borderRadius: 0,
                     justifyContent: "flex-start",
+                    
                     "@media (max-width: 1400px), (max-height: 400px)": {
                         justifyContent: "center",
                         h: "25%",
@@ -23,11 +24,11 @@ const theme = extendTheme({
                 'login-menu-bttn': {
                     bg: "none",
                     color: "#212529",
-                    w: "120px",
-                    h: "40px",
-                    borderRadius: "15px",
+                    w: "25%",
+                    h: "6vh",
+                    borderRadius: 0,
                     _hover: {
-                        bg: "#ADB5BD"
+                        bg: "#E9ECEF"
                     }
                 },
 
@@ -35,10 +36,12 @@ const theme = extendTheme({
                     bg: "#212529",
                     color: "#F8F9FA",
                     w: "120px",
-                    h: "40px",
+                    h: "6vh",
                     borderRadius: "15px",
                     _hover: {
-                        bg: "#495057"
+                        bg: "#495057",
+                        h: "9vh",
+                        borderRadius: 0,
                     }
                 }
             }
