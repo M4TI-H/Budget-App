@@ -10,7 +10,7 @@ export default function Login(props){
 
                 <Flex className="title-box" flexDir="column" w="90%" h="12vh" pr="6%">
                     <Heading className="title" fontSize="2vw" color="#212529" fontWeight="extrabold">Welcome back!</Heading>
-                    <Text className="title-description" fontSize="0.8vw" color="#6C757D" fontWeight="bold">Enter your data to manage your money right now.</Text>
+                    <Text className="title-description" fontSize="0.8vw" color="#6C757D" fontWeight="bold">Enter your data and manage your money right now.</Text>
                 </Flex>
 
                 <Flex className="form" w="90%" h="24vh" flexDir="column" justify="space-around" pl="3%">
@@ -47,7 +47,7 @@ export default function Login(props){
                 
             </Flex>
             <Flex className="image-box" h="inherit" w="50%" justify="center" align="center">
-                <Image className="image" src={welcome2} boxSize="98%" borderBottomRadius="16px"/>
+                <Image className="image" src={welcome2} boxSize="98%" borderBottomRightRadius="16px"/>
             </Flex>
         </Flex>
     )

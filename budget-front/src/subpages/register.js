@@ -1,8 +1,8 @@
 import "./style/loginStyle.css";
-import { Flex, Heading, Text, Image, FormControl, FormLabel, FormHelperText, Input, HStack } from "@chakra-ui/react";
+import { Flex, Heading, Text, Image, FormControl, FormLabel, FormHelperText, Input, HStack, Button } from "@chakra-ui/react";
 import welcome3 from "../images/welcome3.jpg"
 
-export default function Register(){
+export default function Register(props){
 
     return(
         <Flex bg="#f8f9fa" h="78vh" w="72vw" flexDir="row" borderBottomRadius="24px">
@@ -17,19 +17,23 @@ export default function Register(){
                 <Flex className="form" w="90%" h="36vh" flexDir="column" justify="space-evenly" pl="3%">
                     <FormControl w="80%">
                         <FormLabel fontWeight="semibold">Email</FormLabel>
-                        <Input placeholder="email@example.com" />
+                        <Input placeholder="email@example.com" onChange={e => props.setEmail(e.target.value)}/>
                         <FormHelperText display="none">Email already occupied</FormHelperText>
                     </FormControl>
 
                     <FormControl w="80%">
                         <FormLabel fontWeight="semibold">Password</FormLabel>
-                        <Input placeholder="Pass1234#" type="password"/>
+                        <Input placeholder="Pass1234#" type="password" />
                         <FormHelperText display="none">Password must contain at least one number and one symbol (!, @, #, $, %)</FormHelperText>
                     </FormControl>
 
-                    <FormControl w="80%">
+                    <FormControl w="100%">
                         <FormLabel fontWeight="semibold">Repeat password</FormLabel>
-                        <Input placeholder="Pass1234#" type="password"/>
+                        <HStack>
+                            <Input w="80%" placeholder="Pass1234#" type="password" onChange={e => props.setPassword(e.target.value)}/>
+                            <Button w="16%" ml="1%" colorScheme="green" onClick={props.submitRegistration}>Register</Button>
+                        </HStack>
+                        
                         <FormHelperText display="none">Passwords are different</FormHelperText>
                     </FormControl>
                 </Flex>
@@ -47,7 +51,7 @@ export default function Register(){
                 
             </Flex>
             <Flex className="image-box" h="inherit" w="50%" justify="center" align="center">
-                <Image className="image" src={welcome3} boxSize="98%" borderBottomRadius="16px"/>
+                <Image className="image" src={welcome3} boxSize="98%" borderBottomRightRadius="16px"/>
             </Flex>
         </Flex>
     )
