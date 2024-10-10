@@ -1,7 +1,8 @@
 export default function RegisterValidation(email, password, setRegisterData){
     let error = {};
+
     const emailRegex = /\S+@\S+\.\S+/;
-    const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$])(?=.*\d)[A-Za-z\d!@#$]*$/;
+    const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{6,}$/gm
 
     if(email === ""){
         error.email = "Enter your email";
@@ -15,15 +16,14 @@ export default function RegisterValidation(email, password, setRegisterData){
     }
 
     if(password === ""){
-        error.password = "Enter your password"
-      }
-      else if(passwordRegex.test(pass) === false){
-        error.password = "Your password must contain at least one capitalized letter and one number";
-      }
-      else{
-        error.password = "";
-        setRegisterData(prev => ({...prev, pass: pass}));
-      }  
-
+          error.password = "Enter your password";
+    }
+    else if(passwordRegex.test(password) === false){
+        error.password = "Your password must contain a capitalized letter, number and a symbol";
+    } 
+    else{
+       error.password = "";
+       setRegisterData(prev => ({...prev, password: password}));
+    } 
     return error;
 }

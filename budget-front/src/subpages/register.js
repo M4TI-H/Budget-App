@@ -14,27 +14,26 @@ export default function Register(props){
                         anywhere you are. Register now and manage your money for free, giving you the tools to take charge of your finances easily.</Text>
                 </Flex>
 
-                <Flex className="form" w="90%" h="36vh" flexDir="column" justify="space-evenly" pl="3%">
+                <Flex className="form" w="90%" h="38vh" flexDir="column" justify="space-evenly" pl="3%">
                     <FormControl w="80%">
                         <FormLabel fontWeight="semibold">Email</FormLabel>
-                        <Input placeholder="email@example.com" onChange={e => props.setEmail(e.target.value)}/>
-                        <FormHelperText display="none">Email already occupied</FormHelperText>
+                        <Input onChange={e => props.setEmail(e.target.value)}/>
+                        {props.errorMessage.email && <FormHelperText color="#ef233c" fontSize="0.8vw" fontWeight="bold">{props.errorMessage.email}</FormHelperText>}
                     </FormControl>
 
                     <FormControl w="80%">
                         <FormLabel fontWeight="semibold">Password</FormLabel>
-                        <Input placeholder="Pass1234#" type="password" />
-                        <FormHelperText display="none">Password must contain at least one number and one symbol (!, @, #, $, %)</FormHelperText>
+                        <Input type="password" onChange={e => props.setPassword(e.target.value)}/>
+                        {props.errorMessage.password && <FormHelperText color="#ef233c" fontSize="0.8vw" fontWeight="bold">{props.errorMessage.password}</FormHelperText>}
                     </FormControl>
 
                     <FormControl w="100%">
                         <FormLabel fontWeight="semibold">Repeat password</FormLabel>
                         <HStack>
-                            <Input w="80%" placeholder="Pass1234#" type="password" onChange={e => props.setPassword(e.target.value)}/>
+                            <Input w="80%" type="password"/>
                             <Button w="16%" ml="1%" colorScheme="green" onClick={props.submitRegistration}>Register</Button>
                         </HStack>
-                        
-                        <FormHelperText display="none">Passwords are different</FormHelperText>
+                        {props.errorMessage.password2 && <FormHelperText color="#ef233c" fontSize="0.8vw" fontWeight="bold">{props.errorMessage.password2}</FormHelperText>}
                     </FormControl>
                 </Flex>
 
