@@ -1,6 +1,6 @@
 import "./style/loginStyle.css";
 import { Flex, Heading, Text, Image, FormControl, FormLabel, FormHelperText, Input, HStack, Button } from "@chakra-ui/react";
-import welcome3 from "../images/welcome3.jpg"
+import welcome3 from "../images/welcome3.jpg";
 
 export default function Register(props){
 
@@ -17,20 +17,20 @@ export default function Register(props){
                 <Flex className="form" w="90%" h="38vh" flexDir="column" justify="space-evenly" pl="3%">
                     <FormControl w="80%">
                         <FormLabel fontWeight="semibold">Email</FormLabel>
-                        <Input onChange={e => props.setEmail(e.target.value)}/>
+                        <Input onChange={e => props.setEmail(e.target.value)}  value={props.email}/>
                         {props.errorMessage.email && <FormHelperText color="#ef233c" fontSize="0.8vw" fontWeight="bold">{props.errorMessage.email}</FormHelperText>}
                     </FormControl>
 
                     <FormControl w="80%">
                         <FormLabel fontWeight="semibold">Password</FormLabel>
-                        <Input type="password" onChange={e => props.setPassword(e.target.value)}/>
+                        <Input type="password" onChange={e => props.setPassword(e.target.value)} value={props.password}/>
                         {props.errorMessage.password && <FormHelperText color="#ef233c" fontSize="0.8vw" fontWeight="bold">{props.errorMessage.password}</FormHelperText>}
                     </FormControl>
 
                     <FormControl w="100%">
                         <FormLabel fontWeight="semibold">Repeat password</FormLabel>
                         <HStack>
-                            <Input w="80%" type="password"/>
+                            <Input w="80%" type="password" onChange={e => props.setPassword2(e.target.value)} value={props.password2}/>
                             <Button w="16%" ml="1%" colorScheme="green" onClick={props.submitRegistration}>Register</Button>
                         </HStack>
                         {props.errorMessage.password2 && <FormHelperText color="#ef233c" fontSize="0.8vw" fontWeight="bold">{props.errorMessage.password2}</FormHelperText>}

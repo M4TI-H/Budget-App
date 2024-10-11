@@ -1,4 +1,4 @@
-export default function RegisterValidation(email, password, setRegisterData){
+export default function RegisterValidation(email, password, password2, setRegisterData){
     let error = {};
 
     const emailRegex = /\S+@\S+\.\S+/;
@@ -19,11 +19,29 @@ export default function RegisterValidation(email, password, setRegisterData){
           error.password = "Enter your password";
     }
     else if(passwordRegex.test(password) === false){
-        error.password = "Your password must contain a capitalized letter, number and a symbol";
-    } 
+        error.password = "Your password must contain a capitalized letter and a number";
+    }
+    else if(password !== password2){
+        error.password = "Passwords are different";
+    }
+
     else{
        error.password = "";
        setRegisterData(prev => ({...prev, password: password}));
     } 
+
+    if(password2 === ""){
+        error.password2 = "Enter your password";
+    }
+    else if(password !== password2){
+        error.password2 = "Passwords are different";
+    }
+    else{
+        error.password2 = "";
+        setRegisterData(prev => ({...prev, password2: password2}));
+    }
+
+
+
     return error;
 }

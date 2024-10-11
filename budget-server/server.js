@@ -27,10 +27,36 @@ app.post("/register", async (req, res) => {
                 res.json({status: error});
             }
             if(data.length > 0){
+                console.log("Email already in database");
                 res.json({status: "Email already in database"});
             }
             else{
                 db.query("INSERT INTO user_data (`email`, `password`) VALUES (?)", [values]);
+            }
+        })
+    }
+    catch(error){
+        console.log(error);
+    }
+})
+
+app.post("/login", async (req, res) => {
+    const {logemail, logpassword} = req.body;
+    try{
+        await db.query("SELECT email, password FROM user_data WHERE email = ?", logemail, (error, data) => {
+            if(error){
+                res.json({status: error});
+            }
+            if(data.length > 0){
+                if(data[0].email === logemail && data[0].password !== logpassword){
+                    res.json({status: "Incorrect password"});
+                }
+                else if(data[0].email === logemail && data[0].password === logpassword){
+                    res.json({status: "User logged"});
+                }
+            }
+            else{
+                res.json({status: "There is no user record with that email"});
             }
         })
     }

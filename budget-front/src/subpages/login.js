@@ -1,5 +1,5 @@
 import "./style/loginStyle.css";
-import { Flex, Heading, Text, Image, FormControl, FormLabel, Input, Box, Button, Divider, AbsoluteCenter, Link } from "@chakra-ui/react";
+import { Flex, Heading, Text, Image, FormControl, FormLabel, Input, Box, Button, Divider, AbsoluteCenter, Link, HStack } from "@chakra-ui/react";
 import welcome2 from "../images/welcome2.jpg"
 
 export default function Login(props){
@@ -17,12 +17,15 @@ export default function Login(props){
                     
                     <FormControl w="80%">
                         <FormLabel fontWeight="semibold">Email</FormLabel>
-                        <Input />
+                        <Input onChange={e => props.setLogEmail(e.target.value)} value={props.logemail}/>
                     </FormControl>
 
                     <FormControl w="80%">
                         <FormLabel fontWeight="semibold">Password</FormLabel>
-                        <Input type="password"/>
+                        <HStack>    
+                            <Input w="80%" type="password" onChange={e => props.setLogPassword(e.target.value)} value={props.logpassword}/>
+                            <Button w="16%" ml="1%" colorScheme="green" onClick={props.submitLogin}>Login</Button>
+                        </HStack>
                     </FormControl>
                 </Flex>
 

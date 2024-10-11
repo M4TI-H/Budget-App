@@ -20,10 +20,10 @@ export default function LoginMenu(props){
             <Menu>
                 <MenuButton as={IconButton} icon={<HamburgerIcon />} />
                 <MenuList>
-                    <MenuItem>Login</MenuItem>
-                    <MenuItem>Register</MenuItem>
-                    <MenuItem>About Us</MenuItem>
-                    <MenuItem>Download</MenuItem>
+                    <MenuItem id="login" onClick={props.setSubpage}>Login</MenuItem>
+                    <MenuItem id="register" onClick={props.setSubpage}>Register</MenuItem>
+                    <MenuItem id="aboutus" onClick={props.setSubpage}>About Us</MenuItem>
+                    <MenuItem id="download" onClick={props.setSubpage}>Download</MenuItem>
                 </MenuList>
             </Menu>
         </Flex>

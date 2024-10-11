@@ -14,21 +14,26 @@ export default function LoginPage() {
 
     //Select subpage with menu buttons
     const setSubpage = (e) => {
-        e.preventDefault()
+        e.preventDefault();
     
-        setActiveSub(e.target.id)
+        setActiveSub(e.target.id);
     }
 
     //Create user with register form
     const [email , setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [registerData, setRegisterData] = useState({email: null, password: null});
+    const [password2, setPassword2] = useState("");
+    const [registerData, setRegisterData] = useState({email: null, password: null, password2: null});
+
+    const [logemail , setLogEmail] = useState("");
+    const [logpassword, setLogPassword] = useState("");
+
     const [errorMessage, setErrorMessage] = useState({});
 
     const submitRegistration = (e) => {
         e.preventDefault();
 
-        const error = RegisterValidation(email, password, setRegisterData);
+        const error = RegisterValidation(email, password, password2, setRegisterData);
         setErrorMessage(error);
 
         const registerUserQuery = async () => {
@@ -40,24 +45,43 @@ export default function LoginPage() {
                 console.log(err)
             })
         }
-
-        if(error.email !== "" || error.password !== ""){
-            console.log("Validation error", password);
+        if(error.email !== "" || error.password !== "" || error.password2 !== ""){
+            console.log("Validation error", password, password2);
         }
         else{
-            registerUserQuery()
+            registerUserQuery();
+            setEmail("");
+            setPassword("");
+            setPassword2("");
+            //setActiveSub("login");
         }
-        
+    }
+
+    const submitLogin = (e) => {
+        e.preventDefault();
+
+        const LoginUserQuery = async () => {
+            await axios.post("http://localhost:8080/login", {logemail, logpassword})
+            .then((res) => {
+                console.log(logemail, logpassword);
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+        }   
+        LoginUserQuery();
     }
 
     return (
         <Flex bg="#ced4da" h="100vh" flexDir="column" justify="center" align="center">
             <LoginMenu setSubpage={setSubpage}/>
-            {activeSub === "register" && <Register setSubpage={setSubpage} submitRegistration={submitRegistration} setEmail={setEmail} setPassword={setPassword} 
-            errorMessage={errorMessage}/>}
-            {activeSub === "login" && <Login setSubpage={setSubpage}/>}
+            {activeSub === "register" && <Register setSubpage={setSubpage} submitRegistration={submitRegistration} setEmail={setEmail} setPassword={setPassword} setPassword2={setPassword2}
+            errorMessage={errorMessage} email={email} password={password} password2={password2}/>}
+            {activeSub === "login" && <Login setSubpage={setSubpage} submitLogin={submitLogin} setLogPassword={setLogPassword} setLogEmail={setLogEmail}
+            errorMessage={errorMessage} logemail={logemail} logpassword={logpassword}/>}
             {activeSub === "aboutus" && <Aboutus />}
             {activeSub === "download" && <Download />}
+
         </Flex>
     );
 }
